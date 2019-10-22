@@ -1,0 +1,150 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Node2D.gd" type="Script" id=1]
+[ext_resource path="res://fondo_estrellas.png" type="Texture" id=2]
+[ext_resource path="res://estrella1.png" type="Texture" id=3]
+[ext_resource path="res://estrella2.png" type="Texture" id=4]
+[ext_resource path="res://estrella3.png" type="Texture" id=5]
+[ext_resource path="res://estrella4.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Nueva animación"
+
+[sub_resource type="Animation" id=2]
+resource_name = "estrella"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite2:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 136.81, 259.76, 109.224, 280.208, 357.385, 445.478 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -166.951, 140.171 ), Vector2( 400.111, 218.929 ), Vector2( 665.026, 214.156 ), Vector2( 929.225, 181.459 ), Vector2( 1154.76, 147.331 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 493.939, 622.944, 759.804, 524.269, 666.984, 339.551 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 273.367, 434.939 ), Vector2( 226.64, 520.857 ), Vector2( 99.6464, 430.04 ), Vector2( 159.061, 317.115 ), Vector2( 282.537, 342.865 ), Vector2( 273.367, 434.939 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 138.027, 220.453, 250.283, 243.469, 120.27 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 10.0
+loop = true
+step = 5.0
+
+[sub_resource type="Animation" id=5]
+length = 10.0
+loop = true
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "estrella2",
+"speed": 9.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Nueva animación" = SubResource( 1 )
+anims/estrella = SubResource( 2 )
+"anims/estrella principal" = SubResource( 3 )
+anims/estrella1 = SubResource( 4 )
+anims/estrella_1 = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 367.112, 548.697 )
+scale = Vector2( 0.38152, 1.01638 )
+texture = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1127.93, 165.837 )
+rotation = 4.27921
+scale = Vector2( 0.460966, 0.346993 )
+frames = SubResource( 6 )
+playing = true
+flip_h = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 606.758, 955.133 )
+rotation = 7.77506
+scale = Vector2( 0.315582, 0.31746 )
+frames = SubResource( 7 )
+animation = "estrella2"
+frame = 5
+speed_scale = 2.0
+playing = true
+flip_h = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+position = Vector2( 129.265, 580.436 )
+rotation = 5.92628
+scale = Vector2( 0.43327, 0.402332 )
+frames = SubResource( 7 )
+animation = "estrella2"
+frame = 1
+speed_scale = 2.0
+playing = true
+flip_h = true

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://RigidBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/Barra_negra.png" type="Texture" id=2]
 [ext_resource path="res://Sprite/Barra_blanca.png" type="Texture" id=3]
-[ext_resource path="res://VisibilityNotifier2D.gd" type="Script" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,10 +18,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 363.306, 12.4062 )
+extents = Vector2( 205.941, 20.0802 )
 
 [node name="Barra_enemigo" type="RigidBody2D"]
-position = Vector2( 38.9949, 204.977 )
+position = Vector2( 33.9881, 8.61156 )
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource( 1 )
@@ -32,18 +31,15 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 312.628, 73.6871 )
-scale = Vector2( 1.5, 1 )
+position = Vector2( 336.29, 73.6871 )
+scale = Vector2( 1.14947, 1 )
 frames = SubResource( 1 )
 animation = "Negra"
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( 316.088, 41.0214 )
-scale = Vector2( 1.5, 1 )
+[node name="colision_izq" type="CollisionShape2D" parent="."]
+position = Vector2( 131.071, 29.4686 )
 shape = SubResource( 2 )
 
-[node name="Visibilidad" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 317.014, 21.0856 )
-scale = Vector2( 52.1457, 3.10856 )
-script = ExtResource( 4 )
-[connection signal="screen_exited" from="Visibilidad" to="." method="_on_Visibilidad_screen_exited"]
+[node name="Colision_der" type="CollisionShape2D" parent="."]
+position = Vector2( 546.07, 28.4686 )
+shape = SubResource( 2 )

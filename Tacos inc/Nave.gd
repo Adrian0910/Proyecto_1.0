@@ -2,6 +2,7 @@ extends Area2D
 export (int) var velocidad
 var Movimiento = Vector2()
 var limiteVentana
+signal golpe 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	limiteVentana = get_viewport_rect().size
@@ -27,7 +28,8 @@ func _process(delta):
 	
 	
 func inicio(pos):
-		position = pos
+		position = pos		
+		$CollisionShape2D.disabled = false
 		show() #mostrar el jugador
 		#$Collisionshape.disabled=false
 	
@@ -37,3 +39,14 @@ func inicio(pos):
 	#	$AnimatedSprite.animation = "Nave"
 	#else:
 	#	$AnimatedSprite.animation = "Alto"
+
+
+func _on_Nave_body_entered(body):
+	hide()
+	$CollisionShape2D.disabled = true
+	emit_signal("golpe")
+	
+	
+	
+	
+	

@@ -5,8 +5,11 @@ signal iniciar_juego
 
 #Funcion para mostrar la cadena introducida como "texto_a" en pantalla
 func mostrar_mensaje(texto_a):
+	if texto_a=="Juego Terminado":
+		$Mensajes.ubicacion($Position2D.position)
 	$Mensajes.text=texto_a
 	$Mensajes.show()
+	
 	$Mensaje_timer.start() #Se comienza un contador de tiempo antes de ocultar el mensaje
 	
 	

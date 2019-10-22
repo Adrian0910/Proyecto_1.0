@@ -5,6 +5,16 @@ var tipos_barra=["Negra","Blanca"]
 
 func _ready():
 	 $Sprite.animation = tipos_barra[randi() % tipos_barra.size()]
+	 colisiones($Sprite.animation)
+	
+func colisiones(dibujo):
+	if dibujo == "Negra":
+		$colision_izq.disabled=true
+		$Colision_der.disabled=false
+		
+	if dibujo =="Blanca":
+		$Colision_der.disabled=true
+		$colision_izq.disabled=false
 	
 
 	

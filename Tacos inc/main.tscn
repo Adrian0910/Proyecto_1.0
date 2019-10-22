@@ -2,8 +2,8 @@
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Obstaculos.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Nave.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://estrellutas_animadas.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nave.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Interfaz.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
@@ -15,9 +15,9 @@ _data = {
 script = ExtResource( 1 )
 Barra_enemigo = ExtResource( 2 )
 
-[node name="Nave" parent="." instance=ExtResource( 3 )]
+[node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
 
-[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+[node name="Nave" parent="." instance=ExtResource( 4 )]
 
 [node name="Enemigo_timer" type="Timer" parent="."]
 wait_time = 4.0
@@ -41,6 +41,8 @@ rotation = -7.59271e-009
 [node name="Interfaz" parent="." instance=ExtResource( 5 )]
 
 [node name="Posicion_barra" type="Position2D" parent="."]
+[connection signal="body_entered" from="Nave" to="Nave" method="_on_Nave_body_entered"]
+[connection signal="golpe" from="Nave" to="." method="_on_Nave_golpe"]
 [connection signal="timeout" from="Enemigo_timer" to="." method="_on_Enemigo_timer_timeout"]
 [connection signal="timeout" from="Score_timer" to="." method="_on_Score_timer_timeout"]
 [connection signal="timeout" from="Star_timer" to="." method="_on_Star_timer_timeout"]

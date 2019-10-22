@@ -63,3 +63,7 @@ func _on_Enemigo_timer_timeout():
 
 
 
+
+
+func _on_Nave_golpe():
+	game_over()
