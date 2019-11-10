@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Bala.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/bullet.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.79012
+height = 34.6914
+
+[node name="Bala" type="KinematicBody2D"]
+position = Vector2( 37.3333, 37.5309 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BalaSprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="BalaColition" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

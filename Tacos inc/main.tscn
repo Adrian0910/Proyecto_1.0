@@ -2,25 +2,21 @@
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Obstaculos.tscn" type="PackedScene" id=2]
-[ext_resource path="res://estrellutas_animadas.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Nave.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nave.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Bg_Galaxia.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Interfaz.tscn" type="PackedScene" id=5]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -2.479, 0.336472, 0, 0, 0, 0, 712.254, 0.336472, 0, 0, 0, 0, 715.957, 1077.99, 0, 0, 0, 0, -2.479, 1074.29, 0, 0, 0, 0, -2.479, 0.336472 )
-}
+[ext_resource path="res://Bala.tscn" type="PackedScene" id=6]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
 Barra_enemigo = ExtResource( 2 )
 
-[node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
-
-[node name="Nave" parent="." instance=ExtResource( 4 )]
+[node name="Nave" parent="." instance=ExtResource( 3 )]
 
 [node name="Enemigo_timer" type="Timer" parent="."]
 wait_time = 4.0
+
+[node name="Bg_Galaxia" parent="." instance=ExtResource( 4 )]
 
 [node name="Score_timer" type="Timer" parent="."]
 
@@ -31,16 +27,14 @@ one_shot = true
 [node name="Posicion_inicio" type="Position2D" parent="."]
 position = Vector2( 378.516, 614.859 )
 
-[node name="Camino_enemigo" type="Path2D" parent="."]
-curve = SubResource( 1 )
-
-[node name="Posicion_enemigo" type="PathFollow2D" parent="Camino_enemigo"]
-position = Vector2( -2.479, 0.336472 )
-rotation = -7.59271e-009
-
 [node name="Interfaz" parent="." instance=ExtResource( 5 )]
 
 [node name="Posicion_barra" type="Position2D" parent="."]
+
+[node name="Bala" parent="." instance=ExtResource( 6 )]
+
+[node name="Bala2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 545.833, -155.969 )
 [connection signal="body_entered" from="Nave" to="Nave" method="_on_Nave_body_entered"]
 [connection signal="golpe" from="Nave" to="." method="_on_Nave_golpe"]
 [connection signal="timeout" from="Enemigo_timer" to="." method="_on_Enemigo_timer_timeout"]

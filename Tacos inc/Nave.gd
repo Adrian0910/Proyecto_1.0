@@ -27,6 +27,9 @@ func _process(delta):
 	position.y = clamp(position.y,25, limiteVentana.y-50)
 	
 	
+	#if(Input.is_action_pressed("disparar_player")):
+		
+	
 func inicio(pos):
 		position = pos		
 		$CollisionShape2D.disabled = false
